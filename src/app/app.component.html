@@ -19,33 +19,7 @@
 
 <div *ngIf="access">
   <h2>Hey, {{ userName | uppercase }}!</h2>
-  <h3> Add a new dog:</h3>
-  <div>
-    <label>Name:
-      <input type="text" [(ngModel)]="dogName" placeholder="Name" />
-    </label>
-    <label>Weight:
-      <input type="text" [(ngModel)]="dogWeight" placeholder="Weight" />
-    </label>
-    <label>Birth Date:
-      <input type="date" [(ngModel)]="birthDate" placeholder="BirthDate" />
-    </label>
-    <div>
-      <span *ngIf="dogWeight < 10" [ngClass]="{'warning' : dogWeight < 5, 'message': true }">
-        {{dogName}} is underweight
-      </span>
-    </div>
-    <br>
-    <button type="button" name="btnAddDog" (click)="addDog()">Add dog</button>
-
-    <ul>
-      <li *ngFor="let dog of dogs; let i = index">
-        {{i+1}}. {{dog.name | uppercase}} - {{dog.weight}}kgs, {{dog.birthDate | date:getFormat(i)}}
-        <input type="button" name="btnShortDate" [value]="getBtn(i)" (click)="toggle(i)" />
-        <input type="button" name="btnDeleteDog" value="X" (click)="deleteDog(i)" />
-      </li>
-    </ul>
-  </div>
+  <app-dogs></app-dogs>
 
 
   <ul>

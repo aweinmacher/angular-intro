@@ -7,11 +7,13 @@ import { CatService } from './cat.service';
 import { LoginService } from './login.service';
 
 import { AppComponent } from './app.component';
+import { DogsComponent } from './dogs/dogs.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DogsComponent
   ],
   imports: [
     BrowserModule,
