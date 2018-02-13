@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { DogService } from './dog.service';
 import { CatService } from './cat.service';
 import { LoginService } from './login.service';
@@ -8,18 +8,28 @@ import { LoginService } from './login.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit, OnDestroy {
+  title = 'my first Angular 2.0 adventure';
+  sayHello: any;
+  dogs:any[];
+  cats:any[];
+  dogName: string = 'Rex';
+  dogWeight: number = 7;
+  birthDate: Date;
   constructor(
     private dogService: DogService,
     private catService: CatService,
     private loginService: LoginService
   ) {}
-  title = 'my first Angular 2.0 adventure';
-  dogName: string = 'Rex';
-  dogWeight: number = 7;
-  birthDate: Date;
-  dogs = this.dogService.getDogs();
-  cats = this.catService.getCats();
+  ngOnInit() { 
+    this.dogs = this.dogService.getDogs();
+    this.cats = this.catService.getCats();
+    // this.sayHello = window.setInterval(() => console.log('Hello!'),  1000);
+  }
+  ngOnDestroy() {
+    window.clearInterval(this.sayHello);	
+  }
   addDog(){
     this.dogs.push({
       name: this.dogName, 
