@@ -1,0 +1,8 @@
+* {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+button {font-size: 1.2em}
+.message { font-size: 0.8em }
+.warning { color: red }
+li { list-style-type: none }
+.loginForm { 
+    padding: 10px;
+    background: greenyellow }
