@@ -1,17 +1,17 @@
 <h3> Add a new dog:</h3>
 
 <label>Name:
-  <input type="text" [(ngModel)]="dogName" placeholder="Name" />
+  <input type="text" [(ngModel)]="dog.name" placeholder="Name" />
 </label>
 <label>Weight:
-  <input type="text" [(ngModel)]="dogWeight" placeholder="Weight" />
+  <input type="text" [(ngModel)]="dog.weight" placeholder="Weight" />
 </label>
 <label>Birth Date:
-  <input type="date" [(ngModel)]="birthDate" placeholder="BirthDate" />
+  <input type="date" [(ngModel)]="dog.birthDate" placeholder="BirthDate" />
 </label>
 <div>
-  <span *ngIf="dogWeight < 10" [ngClass]="{'warning' : dogWeight < 5, 'message': true }">
-    {{dogName}} is underweight
+  <span *ngIf="dog.weight < 10" [ngClass]="{'warning' : dog.weight < 5, 'message': true }">
+    {{dog.name}} is underweight
   </span>
 </div>
 <br>
