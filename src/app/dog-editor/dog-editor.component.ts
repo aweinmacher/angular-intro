@@ -12,12 +12,5 @@ export class DogEditorComponent implements OnInit {
   dog:Dog = new Dog();
   constructor(private dogService: DogService) { }
   ngOnInit() {}
-  addDog(){
-  	let newDog = new Dog();
-  	newDog.name = this.dog.name;
-  	newDog.weight = this.dog.weight;
-  	newDog.birthDate = this.dog.birthDate; 
-  	this.dogService.addDog(newDog);  		
-  }
-
+  addDog(){ this.dogService.addDog(this.dog); }
 }
