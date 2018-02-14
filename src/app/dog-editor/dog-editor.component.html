@@ -15,4 +15,8 @@
   </span>
 </div>
 <br>
-<button type="button" name="btnAddDog" (click)="addDog()">Add dog</button>
+<button *ngIf="!dog.id" type="button" name="btnAddDog" (click)="addDog()">Add dog</button>
+<div *ngIf="dog.id" >
+  <button type="button" name="btnSubmitEdit" (click)="submitEdit()">Edit dog</button>
+  <button type="button" name="btnCancelEdit" (click)="cancelEdit()">Cancel</button>
+</div>
