@@ -19,12 +19,7 @@
 
 <div *ngIf="access">
   <h2>Hey, {{ userName | uppercase }}!</h2>
-  <app-dogs></app-dogs>
-
-
-  <ul>
-    <li *ngFor="let cat of cats; let i = index">
-      {{i+1}}. {{cat.name | uppercase}} - {{cat.weight}}kgs, {{cat.birthDate | date:shortDate}}
-    </li>
-  </ul>
-</div>
+  <div>
+    <app-dog-editor></app-dog-editor>
+    <app-dogs></app-dogs>
+  </div>

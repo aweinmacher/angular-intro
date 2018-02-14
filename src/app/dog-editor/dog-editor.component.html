@@ -1,0 +1,18 @@
+<h3> Add a new dog:</h3>
+
+<label>Name:
+  <input type="text" [(ngModel)]="dogName" placeholder="Name" />
+</label>
+<label>Weight:
+  <input type="text" [(ngModel)]="dogWeight" placeholder="Weight" />
+</label>
+<label>Birth Date:
+  <input type="date" [(ngModel)]="birthDate" placeholder="BirthDate" />
+</label>
+<div>
+  <span *ngIf="dogWeight < 10" [ngClass]="{'warning' : dogWeight < 5, 'message': true }">
+    {{dogName}} is underweight
+  </span>
+</div>
+<br>
+<button type="button" name="btnAddDog" (click)="addDog()">Add dog</button>
