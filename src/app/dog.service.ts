@@ -15,6 +15,7 @@ export class DogService {
   constructor() { }
 
   getDogs(): Dog[] { return this.dogs; }
+  
   deleteDog(index: number) { DOGS.splice(index, 1); }
 
   generateId(): number {

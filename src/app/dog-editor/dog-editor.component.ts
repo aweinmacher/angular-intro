@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Dog } from '../dogs/dog';
 import { DogService } from '../dog.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-dog-editor',
@@ -9,27 +10,29 @@ import { DogService } from '../dog.service';
 })
 
 export class DogEditorComponent implements OnInit {
-  @Input() dog: Dog = new Dog();
-  @Output() dogAdded : EventEmitter<Dog> = new EventEmitter();
-  @Output() dogEdited : EventEmitter<Dog> = new EventEmitter();
-  
-  constructor(private dogService: DogService) { }
-  
-  ngOnInit() { }
+  dog: Dog = new Dog();
+ 
+  constructor(private dogService: DogService, private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      if (params.id) {
+        this.dog = this.dogService.getDogs().find(item => item.id === Number(params.id));
+      }
+    });
+  }
 
   addDog() {
-    this.dogService.addDog(this.dog); 
-    this.dogAdded.emit(this.dog);   
+    this.dogService.addDog(this.dog);
     this.dog = new Dog();
   }
 
   submitEdit() {
     console.log(this.dog);
-    this.dogService.editDog(this.dog.id, this.dog); 
-    this.dogEdited.emit(this.dog);
+    this.dogService.editDog(this.dog.id, this.dog);
     this.dog = new Dog();
   }
 
-  cancelEdit() {this.dog = new Dog();}
+  cancelEdit() { this.dog = new Dog(); }
 
 }

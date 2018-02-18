@@ -11,9 +11,7 @@ import { LoginService } from './login.service';
 export class AppComponent implements OnInit, OnDestroy {
   title = 'my first Angular 5 adventure';
   sayHello: any;
-  constructor(
-    private loginService: LoginService
-  ) {}
+  constructor( private loginService: LoginService ) {}
   ngOnInit() {
     // this.sayHello = window.setInterval(() => console.log('Hello!'),  1000);
   }

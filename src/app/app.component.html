@@ -10,5 +10,11 @@
 </div>
 
 <div *ngIf="login()">
+  <nav>
+    <a routerLink="/">Dogs</a>
+    <a routerLink="/about">About</a>
+    <a routerLink="/add-dog">Add dog</a>
+  </nav>
+  <br>
   <router-outlet></router-outlet>
 </div>
