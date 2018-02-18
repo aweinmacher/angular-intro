@@ -9,11 +9,7 @@ import { LoginService } from './login.service';
 })
 
 export class AppComponent implements OnInit, OnDestroy {
-  userName: string;
-  password: string;
-  access: boolean = false;
-
-  title = 'my first Angular 2.0 adventure';
+  title = 'my first Angular 5 adventure';
   sayHello: any;
   constructor(
     private loginService: LoginService
@@ -24,6 +20,5 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     window.clearInterval(this.sayHello);	
   }
-  
-  login() { this.access = this.loginService.checkUser(this.userName, this.password); }
+  login() { return this.loginService.access; }
 }

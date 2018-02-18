@@ -1,0 +1,15 @@
+<div *ngIf="!login()">
+  <label>Name:
+    <input type="text" [(ngModel)]="userName" placeholder="a" />
+  </label>
+  <br>
+  <label>Password:
+    <input type="password" [(ngModel)]="password" placeholder="123" />
+  </label>
+  <br>
+  <button type="button" name="btnLogin" (click)="login()">Log In</button>
+</div>
+
+<div *ngIf="login()">
+  <h2>Hey, {{ userName | uppercase }}!</h2>
+</div>

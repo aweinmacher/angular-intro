@@ -11,6 +11,7 @@ import { DogsComponent } from './dogs/dogs.component';
 import { DogEditorComponent } from './dog-editor/dog-editor.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { AboutComponent } from './about/about.component';
+import { AuthorisationComponent } from './authorisation/authorisation.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AboutComponent } from './about/about.component';
     AppComponent,
     DogsComponent,
     DogEditorComponent,
-    AboutComponent
+    AboutComponent,
+    AuthorisationComponent
   ],
   imports: [
     BrowserModule,

@@ -5,7 +5,13 @@ const password: string = '123';
 
 @Injectable()
 export class LoginService {
+  access: boolean = true; // or it constantly appears, e.g. for /about route
   constructor() { }
-  checkUser(name, pass) {return userName===name && password===pass ? true : false;}
+  checkUser(name, pass) {
+    if (userName===name && password===pass) {
+      this.access = true;
+    }
+    return this.access;
+  }
 
 }
