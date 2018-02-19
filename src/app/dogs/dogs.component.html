@@ -2,13 +2,14 @@
 
 <!-- <a routerLink="/add-dog">Add dog</a> -->
 
+<div>
+Filter by Name: 
+    <input type="text" [(ngModel)]="searchName" placeholder="Name" />
+    <button type="button" name="btnSearch" routerLink="http://localhost:4200/?name=woof">Search</button>
+</div>
+
 <h3>{{title}}</h3>
 
-<form>
-  input
-</form>
-
-<!-- <h4 *ngIf="lastUpdated.length > 0">{{ lastUpdated }}</h4> -->
 <ul>
   <li *ngFor="let dog of dogs; let i = index">
 

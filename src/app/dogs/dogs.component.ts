@@ -20,10 +20,9 @@ export class DogsComponent implements OnInit {
   ngOnInit() {
     this.title = "Our dogs";
     this.dogs = this.dogService.getDogs();
-
     this.route.queryParams.subscribe(queryParams => {
-      console.log("name query param is: " + queryParams.name); // http://localhost:4200/?name=woof
       if (queryParams.name) {
+        console.log("name query param is: " + queryParams.name); // http://localhost:4200/?name=woof
         this.dogs = this.dogService.getDogsByName(queryParams.name);
       }
     });
