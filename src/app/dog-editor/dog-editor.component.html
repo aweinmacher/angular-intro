@@ -13,8 +13,8 @@
   </span>
 </div>
 <br>
-<button *ngIf="!dog.id" type="button" name="btnAddDog" (click)="addDog()">Add dog</button>
+<button *ngIf="!dog.id" type="button" name="btnAddDog" (click)="addDog()" routerLink="/">Add dog</button>
 <div *ngIf="dog.id" >
-  <button type="button" name="btnSubmitEdit" (click)="submitEdit()">Edit dog</button>
-  <button type="button" name="btnCancelEdit" (click)="cancelEdit()">Cancel</button>
+  <button type="button" name="btnSubmitEdit" (click)="submitEdit()" routerLink="/">Edit dog</button>
+  <button type="button" name="btnCancelEdit" (click)="cancelEdit()" routerLink="/">Cancel</button>
 </div>

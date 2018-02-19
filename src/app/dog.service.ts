@@ -15,6 +15,10 @@ export class DogService {
   constructor() { }
 
   getDogs(): Dog[] { return this.dogs; }
+
+  getDogsByName(searchName:string): Dog[] { 
+    return this.dogs.filter(item => item.name.toLowerCase().includes(searchName.toLowerCase()));
+  }
   
   deleteDog(index: number) { DOGS.splice(index, 1); }
 

@@ -17,7 +17,7 @@ export class DogEditorComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (params.id) {
-        this.dog = this.dogService.getDogs().find(item => item.id === Number(params.id));
+        this.dog = Object.assign({},this.dogService.getDogs().find(item => item.id === Number(params.id)));
       }
     });
   }

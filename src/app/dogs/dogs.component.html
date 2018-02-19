@@ -3,7 +3,12 @@
 <!-- <a routerLink="/add-dog">Add dog</a> -->
 
 <h3>{{title}}</h3>
-<h4 *ngIf="lastUpdated.length > 0">{{ lastUpdated }}</h4>
+
+<form>
+  input
+</form>
+
+<!-- <h4 *ngIf="lastUpdated.length > 0">{{ lastUpdated }}</h4> -->
 <ul>
   <li *ngFor="let dog of dogs; let i = index">
 
@@ -11,8 +16,7 @@
 
     <input type="button" name="btnShortDate" [value]="dog.toggle ? '+' : '-'" (click)="toggle(i)" />
     <input type="button" name="btnDeleteDog" value="X" (click)="deleteDog(i)" />
-    <!-- <input type="button" name="btnEditDog" value="Edit" (click)="editDog(dog)" /> -->
-    <a [routerLink]="['edit-dog', dog.id]">Edit</a>
+    <input type="button" name="btnEditDog" value="Edit" [routerLink]="['edit-dog', dog.id]" />
 
     <span *ngIf="dog.wasEdited">just updated!</span>
 

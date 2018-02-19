@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
 import { DogService } from '../dog.service';
 import { Dog } from './dog';
 
@@ -12,8 +13,17 @@ export class DogsComponent implements OnInit {
   title: string;
   selectedDog: Dog = new Dog();
   lastUpdated: string = '';
+  searchName: string = '';
   
-  constructor(private dogService: DogService) { }
+  constructor(private dogService: DogService, private route: ActivatedRoute) { 
+    this.route.queryParams.subscribe(queryParams => {
+      console.log("name query param is: " + queryParams.name); // http://localhost:4200/?name=woof
+      if(queryParams.name) {
+        this.dogs = this.dogService.getDogsByName(queryParams.name);
+        console.log(this.dogs);
+      }
+    });
+  }
   ngOnInit() {
     this.title = "Our dogs";
     this.dogs = this.dogService.getDogs();
