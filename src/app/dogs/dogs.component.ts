@@ -14,24 +14,25 @@ export class DogsComponent implements OnInit {
   selectedDog: Dog = new Dog();
   lastUpdated: string = '';
   searchName: string = '';
+
+  constructor(private dogService: DogService, private route: ActivatedRoute) { }
   
-  constructor(private dogService: DogService, private route: ActivatedRoute) { 
-    this.route.queryParams.subscribe(queryParams => {
-      console.log("name query param is: " + queryParams.name); // http://localhost:4200/?name=woof
-      if(queryParams.name) {
-        this.dogs = this.dogService.getDogsByName(queryParams.name);
-        console.log(this.dogs);
-      }
-    });
-  }
   ngOnInit() {
     this.title = "Our dogs";
     this.dogs = this.dogService.getDogs();
+
+    this.route.queryParams.subscribe(queryParams => {
+      console.log("name query param is: " + queryParams.name); // http://localhost:4200/?name=woof
+      if (queryParams.name) {
+        this.dogs = this.dogService.getDogsByName(queryParams.name);
+      }
+    });
   }
+
   toggle(i) { this.dogs[i].toggle ? this.dogs[i].toggle = false : this.dogs[i].toggle = true }
   getFormat(i) { return this.dogs[i].toggle ? 'shortDate' : 'fullDate'; }
   deleteDog(i) { return this.dogService.deleteDog(i); }
-  
+
   editDog(dog: Dog) { // puts the dog into edit-form
     this.selectedDog = Object.assign({}, dog);
   }
